@@ -1,0 +1,13 @@
+{
+  "pages": [   
+    "pages/index/index",
+    "pages/oa/oa",
+    "pages/auth/wechat-auth"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "千矢酱",
+    "navigationBarTextStyle": "black"
+  }
+}

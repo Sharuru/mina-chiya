@@ -1,0 +1,41 @@
+/* pages/index/index.wxss */
+
+.main-container{
+  margin-top: 6%;
+  margin-left: 10%; 
+  margin-right: 10%;
+}
+
+.main-function-block-blue{
+  font-size: 32rpx;
+  color: white;
+  border-radius:50px;
+  background: linear-gradient(to right, #09B8FB , #398BEE);
+}
+
+.main-function-block-red{
+  font-size: 32rpx;
+  color: white;
+  border-radius:50px;
+  background: linear-gradient(to right, #FF9449 , #FD6770);
+}
+
+.function-info {   
+  display: flex;  
+  flex-direction: row;  
+  align-items: center;  
+}  
+
+.function-info-detail {   
+  display: flex;  
+  flex-direction: column;  
+  align-items: left;  
+}  
+  
+.function-info-avatar {  
+  width: 80rpx;  
+  height: 80rpx;  
+  margin: 35rpx;  
+  border-radius: 50%; 
+  background: #393B4A;
+}  
