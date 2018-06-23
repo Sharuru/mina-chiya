@@ -16,7 +16,7 @@
         </view>
         <view class="weui-msg__extra-area">
             <view class="weui-footer">
-                <view class="weui-footer__text">所获权限仅用作解密本地保存的登录信息所用，拒绝授权亦可继续使用，但将无法使用自动登录的功能。</view>
+                <view class="weui-footer__text">所获权限仅仅为了让千矢酱更好的帮助你，绝对不会做坏事哟！</view>
             </view>
         </view>
     </view>

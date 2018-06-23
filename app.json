@@ -1,8 +1,9 @@
 {
-  "pages": [   
+  "pages": [
     "pages/index/index",
     "pages/oa/oa",
-    "pages/auth/wechat-auth"
+    "pages/auth/wechat-auth",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
