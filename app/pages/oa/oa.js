@@ -54,7 +54,6 @@ Page({
         }
       }
     })
-
   },
 
   /**
@@ -68,7 +67,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if (wx.getStorageSync("USER") !== "") {
+      console.log("I am in")
+      this.setData({
+        "userInfo.extra.isOaBind": true,
+        "userInfo.extra.oaAccount": wx.getStorageSync("USER") + "@" + wx.getStorageSync("DEPT")
+      })
+    }
   },
 
   /**
