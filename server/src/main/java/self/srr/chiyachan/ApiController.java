@@ -52,10 +52,14 @@ public class ApiController {
 
             HttpEntity<String> entity = new HttpEntity<>(rawJsonStr, rawHeaders);
 
-            return restTemplate.postForObject(
-                    trueUrl,
-                    entity,
-                    String.class);
+            String response = restTemplate.postForObject(trueUrl, entity, String.class);
+
+            log.info("===== RESPONSE BEGIN");
+            log.info("FROM: " + trueUrl);
+            log.info("With: " + response);
+            log.info("===== RESPONSE END");
+
+            return response;
         }
     }
 }
