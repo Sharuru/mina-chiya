@@ -1,0 +1,13 @@
+chiya:
+  baseUrl: "Enter the endpoint link here"
+server:
+  port: 9090
+
+---
+spring.profiles: staging
+logging:
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: chiya.log
+
+
