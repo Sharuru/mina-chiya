@@ -1,0 +1,7 @@
+const SERVER_URL = 'SERVER'
+const ENDPOINT = 'ENDPOINT'
+
+module.exports = {
+  SERVER_URL: SERVER_URL,
+  ENDPOINT: ENDPOINT
+}
