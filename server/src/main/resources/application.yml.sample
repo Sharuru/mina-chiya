@@ -1,5 +1,5 @@
 chiya:
-  baseUrl: "Enter the endpoint link here"
+  allowed-endpoint:: "Enter the endpoint link here"
 server:
   port: 9090
 

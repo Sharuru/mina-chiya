@@ -11,5 +11,5 @@ import org.springframework.context.annotation.Configuration;
 @EnableConfigurationProperties(AppProperties.class)
 public class AppProperties {
 
-    private String baseUrl;
+    private String allowedEndpoint;
 }
