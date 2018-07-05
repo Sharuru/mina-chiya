@@ -1,0 +1,6 @@
+language: java
+jdk: oraclejdk8
+
+script:
+  - server/gradlew bootJar
+
