@@ -1,25 +1,27 @@
 <!--pages/index/index.wxml-->
 <view class="main-container">
   <view class="main-function-block-blue" bindtap="openOaSystem">
-    <view class="function-info">  
-      <image class="function-info-avatar" src="/images/mbp-logo.png"></image>  
-      <view class="function-info-detail">  
-        <text>E 管家 Lite 版</text>        
-      </view>  
+    <view class="function-info">
+      <image class="function-info-avatar" src="/images/mbp-logo.png"></image>
+      <view class="function-info-detail">
+        <text>E 管家 Lite 版</text>
+      </view>
     </view>
   </view>
 
+  <!-- 先把千矢酱藏起来 XD
   <view class="main-function-block-red" style="margin-top:8%;">
-    <view class="function-info">  
-      <image class="function-info-avatar" src="/images/chiya-logo.jpg"></image>  
-      <view class="function-info-detail">  
-        <text>千矢 BOT（暂未开放）</text>        
-      </view>  
+    <view class="function-info">
+      <image class="function-info-avatar" src="/images/chiya-logo.jpg"></image>
+      <view class="function-info-detail">
+        <text>千矢 BOT</text>
+      </view>
     </view>
   </view>
+  -->
 
   <view class="weui-footer weui-footer_fixed-bottom">
-      <view class="weui-footer__text">こんにちは、千矢ちゃんです！</view>
+    <view class="weui-footer__text">こんにちは、千矢ちゃんです！</view>
   </view>
 
 </view>
