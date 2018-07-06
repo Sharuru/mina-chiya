@@ -1,23 +1,23 @@
 <!--pages/auth/wechat-auth.wxml-->
 <view class="page">
-    <view class="weui-msg">
-        <view class="weui-msg__icon-area">
-            <icon type="info" size="93"></icon>
-        </view>
-        <view class="weui-msg__text-area">
-            <view class="weui-msg__title">授权请求</view>
-            <view class="weui-msg__desc">为了正常使用功能，需要用户授权千矢酱获得一些基本的信息。</view>
-        </view>
-        <view class="weui-msg__opr-area">
-            <view class="weui-btn-area">
-                <button class="weui-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">允许</button>
-                <button class="weui-btn" type="warn" bindtap="refusePermission">拒绝</button>
-            </view>
-        </view>
-        <view class="weui-msg__extra-area">
-            <view class="weui-footer">
-                <view class="weui-footer__text">所获权限仅仅为了让千矢酱更好的帮助你，绝对不会做坏事哟！</view>
-            </view>
-        </view>
+  <view class="weui-msg">
+    <view class="weui-msg__icon-area">
+      <icon type="info" size="93"></icon>
     </view>
+    <view class="weui-msg__text-area">
+      <view class="weui-msg__title">授权请求</view>
+      <view class="weui-msg__desc">为了正常使用功能，需要用户授权千矢酱获得一些基本的信息。</view>
+    </view>
+    <view class="weui-msg__opr-area">
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">允许</button>
+        <button class="weui-btn" type="warn" bindtap="refusePermission">拒绝</button>
+      </view>
+    </view>
+    <view class="weui-msg__extra-area">
+      <view class="weui-footer">
+        <view class="weui-footer__text">所获权限仅仅为了让千矢酱更好的帮助你，绝对不会用来做坏事哟！</view>
+      </view>
+    </view>
+  </view>
 </view>
