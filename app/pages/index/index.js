@@ -8,29 +8,28 @@ Page({
   data: {
 
   },
-  openOaSystem: function(e) {
-    chiya.throttle(
-      wx.getSetting({
-        success: function(res) {
-          // 获取用户权限
-          if (res.authSetting['scope.userInfo']) {
-            wx.getUserInfo({
-              // 有权限跳转
-              success: function(res) {
-                wx.navigateTo({
-                  url: '/pages/oa/oa',
-                })
-              }
-            })
-          } else {
-            // 无权限请求
-            wx.navigateTo({
-              url: '/pages/auth/wechat-auth'
-            })
-          }
+  openOaSystem: chiya.throttle(function(e) {
+    wx.getSetting({
+      success: function(res) {
+        // 获取用户权限
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            // 有权限跳转
+            success: function(res) {
+              wx.navigateTo({
+                url: '/pages/oa/oa',
+              })
+            }
+          })
+        } else {
+          // 无权限请求
+          wx.navigateTo({
+            url: '/pages/auth/wechat-auth'
+          })
         }
-      }), 1500)
-  },
+      }
+    })
+  }, 1500),
 
   /**
    * 生命周期函数--监听页面加载
