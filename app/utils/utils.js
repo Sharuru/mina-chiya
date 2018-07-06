@@ -12,6 +12,7 @@ function apiRequest(endpoint, payload, callback) {
       'content-type': 'application/json'
     },
     complete: function(response) {
+      console.debug(response.data);
       callback && callback(response.data);
     }
   })
