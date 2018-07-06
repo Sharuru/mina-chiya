@@ -23,6 +23,8 @@ Page({
     })
   },
   oaAccountBind: chiya.throttle(function(e) {
+    var that = this
+
     this.setData({
       isBinding: true
     })
@@ -49,11 +51,12 @@ Page({
           duration: 3000
         })
       }
+      that.setData({
+        isBinding: false
+      })
     })
 
-    this.setData({
-      isBinding: false
-    })
+
   }),
   /**
    * 生命周期函数--监听页面加载
