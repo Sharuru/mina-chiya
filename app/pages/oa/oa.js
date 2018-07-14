@@ -1,4 +1,6 @@
 // pages/oa/oa.js
+import chiya from '../../utils/utils.js'
+
 Page({
 
   /**
@@ -14,7 +16,8 @@ Page({
         trimmedNickName: "未授权用户",
         isOaBind : false
       }
-    }
+    },
+    userContext : {}
   },
 
   /**
@@ -67,14 +70,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (wx.getStorageSync("USER") !== "") {
-      console.log("I am in")
+    if (wx.getStorageSync("_USER_CONTEXT") !== "") {
+      var userContext = wx.getStorageSync("_USER_CONTEXT") 
       this.setData({
-        "userInfo.extra.isOaBind": true,
-        "userInfo.extra.oaAccount": wx.getStorageSync("USER") + "@" + wx.getStorageSync("DEPT")
+        "userContext": userContext,
+        "userInfo.extra.isOaBind" : true,
+        "userInfo.extra.oaAccount": userContext.name + "@" + userContext.orgName
       })
     }
   },
+
+  openOaSalary: chiya.throttle(function (e) {
+    if (this.data.userInfo.extra.isOaBind) {
+      wx.navigateTo({
+        url: '/pages/oa/salary/salary',
+      })
+    } else {
+      wx.showToast({
+        title: '请先绑定 E 管家账户',
+        icon: 'none',
+        duration: 3000
+      })
+    }
+  }),
 
   /**
    * 生命周期函数--监听页面隐藏
