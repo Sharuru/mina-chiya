@@ -42,7 +42,7 @@ Page({
           icon: 'success',
           duration: 3000
         })
-        wx.setStorageSync("_userContext", response.content.result)
+        wx.setStorageSync("_USER_CONTEXT", response.content.result)
         wx.navigateBack()
       } else {
         wx.showToast({
