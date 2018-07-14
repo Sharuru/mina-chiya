@@ -8,7 +8,7 @@ function apiRequest(endpoint, payload, callback) {
     method: 'POST',
     header: {
       'CHIYA-ENDPOINT': CONFIG.ENDPOINT,
-      'x-phone-userid': wx.getStorageSync("sessionId"),
+      'x-phone-userid': wx.getStorageSync("_SESSION_ID"),
       'content-type': 'application/json'
     },
     complete: function(response) {

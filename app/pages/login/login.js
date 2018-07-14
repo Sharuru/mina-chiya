@@ -43,6 +43,7 @@ Page({
           duration: 3000
         })
         wx.setStorageSync("_USER_CONTEXT", response.content.result)
+        wx.setStorageSync("_SESSION_ID", response.content.sessionId)
         wx.navigateBack()
       } else {
         wx.showToast({
