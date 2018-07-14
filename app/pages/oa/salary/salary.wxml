@@ -1,0 +1,184 @@
+<!--pages/oa/salary/salary.wxml-->
+<view class="main-container">
+  <view class="info-block-yellow">
+    <view class="info-text">
+      <view style="font-size:26rpx;line-height:35rpx;">
+        <text>
+          本功能仍在开发中，目前仅展示当月薪资信息。
+        </text>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells__title">薪资信息</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">姓名</view>
+      <view class="weui-cell__ft">{{salary.userName}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">工号</view>
+      <view class="weui-cell__ft">{{salary.userId}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">薪资年月份</view>
+      <view class="weui-cell__ft">{{salary.salaryYmd}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">基础工资</view>
+      <view class="weui-cell__ft">{{salary.baseSalary}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">学历津贴</view>
+      <view class="weui-cell__ft">{{salary.educationSubsidy}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">服务年限津贴</view>
+      <view class="weui-cell__ft">{{salary.serviceSubsidy}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">级别工资</view>
+      <view class="weui-cell__ft">{{salary.postSalary}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">日语津贴</view>
+      <view class="weui-cell__ft">{{salary.japaneseSubsidy}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">保密津贴</view>
+      <view class="weui-cell__ft">{{salary.secrecySubsidy}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">顾问津贴</view>
+      <view class="weui-cell__ft">{{salary.consultantSubsidy}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">附加项</view>
+      <view class="weui-cell__ft">{{salary.additionalSalary}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">应发工资</view>
+      <view class="weui-cell__ft">{{salary.shouldPaySalary}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">上月剩余年假</view>
+      <view class="weui-cell__ft">{{salary.lastRemainderHoliday}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">上月剩余调休</view>
+      <view class="weui-cell__ft">{{salary.lastRemainderVacation}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">加班（时）</view>
+      <view class="weui-cell__ft">{{salary.overtime}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">事假（日）</view>
+      <view class="weui-cell__ft">{{salary.leave}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">病假（日）</view>
+      <view class="weui-cell__ft">{{salary.sickLeave}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">迟到次数</view>
+      <view class="weui-cell__ft">{{salary.late}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">欠勤（时）</view>
+      <view class="weui-cell__ft">{{salary.absenteeism}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">本月剩余年假</view>
+      <view class="weui-cell__ft">{{salary.remainderHoliday}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">本月剩余调休</view>
+      <view class="weui-cell__ft">{{salary.remainderVacation}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">欠勤扣发</view>
+      <view class="weui-cell__ft">{{salary.absenteeismDeduct}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">事假扣发</view>
+      <view class="weui-cell__ft">{{salary.leaveDeduct}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">病假扣发</view>
+      <view class="weui-cell__ft">{{salary.sickLeaveDeduct}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">法定假日加班</view>
+      <view class="weui-cell__ft">{{salary.vacationOvertime}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">加班费</view>
+      <view class="weui-cell__ft">{{salary.overtimeWages}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">其他扣发</view>
+      <view class="weui-cell__ft">{{salary.otherDeduct}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">扣发</view>
+      <view class="weui-cell__ft">{{salary.deduct}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">社保缴费</view>
+      <view class="weui-cell__ft">{{salary.socialSecurity}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">社保补缴费</view>
+      <view class="weui-cell__ft">{{salary.addSocialSecurity}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">公积金缴费</view>
+      <view class="weui-cell__ft">{{salary.reserve}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">公积金补缴费</view>
+      <view class="weui-cell__ft">{{salary.addReserve}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">保守津贴</view>
+      <view class="weui-cell__ft">{{salary.keepSubsidy}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">绩效工资</view>
+      <view class="weui-cell__ft">{{salary.achievementsSalary}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">加班餐贴</view>
+      <view class="weui-cell__ft">{{salary.overtimeFoodsWages}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">合计</view>
+      <view class="weui-cell__ft">{{salary.totalSalary}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">所得税</view>
+      <view class="weui-cell__ft">{{salary.incomeTax}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">独生子女费</view>
+      <view class="weui-cell__ft">{{salary.onlyChildFee}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">其他</view>
+      <view class="weui-cell__ft">{{salary.otherSalary}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">工资</view>
+      <view class="weui-cell__ft">{{salary.paySalary}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">摘要</view>
+      <view class="weui-cell__ft">{{salary.summary}}</view>
+    </view>
+
+  </view>
+
+   
+
+</view>

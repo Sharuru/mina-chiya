@@ -1,0 +1,22 @@
+/* pages/oa/salary/salary.wxss */
+
+.main-container{
+  margin-top: 4%;
+  margin-left: 4%; 
+  margin-right: 4%;
+}
+
+.info-block-yellow{
+  color: black;
+  border-radius:10px;
+  background: #FFEB3B;
+}
+
+.info-text {
+  margin: 35rpx;
+  padding-bottom: 35rpx;
+  display: flex;  
+  flex-direction: row;  
+  align-items: center;
+}  
+
