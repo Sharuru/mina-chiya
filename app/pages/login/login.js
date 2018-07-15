@@ -44,6 +44,9 @@ Page({
         })
         wx.setStorageSync("_USER_CONTEXT", response.content.result)
         wx.setStorageSync("_SESSION_ID", response.content.result.sessionId)
+        // TODO using uuid
+        wx.setStorageSync("_USER_NAME", payload.userId)
+        wx.setStorageSync("_USER_PASS", payload.password)
         wx.navigateBack()
       } else {
         wx.showToast({

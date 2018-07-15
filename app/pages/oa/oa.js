@@ -57,6 +57,27 @@ Page({
         }
       }
     })
+    // TODO keep sessionId
+    if (wx.getStorageSync("_USER_NAME") != "") {
+      console.log("Requesting new sessionId")
+      var payload = {
+        userId: wx.getStorageSync("_USER_NAME"),
+        password: wx.getStorageSync("_USER_PASS"),
+        defaultorgId: "00001"
+      }
+      chiya.apiRequest("/login", payload, function (response) {
+        if (response.content.status === "success") {
+          wx.setStorageSync("_USER_CONTEXT", response.content.result)
+          wx.setStorageSync("_SESSION_ID", response.content.result.sessionId)
+        } else {
+          wx.showToast({
+            title: response.content.msg.msgContent,
+            icon: 'none',
+            duration: 3000
+          })
+        }
+      })
+    }
   },
 
   /**
