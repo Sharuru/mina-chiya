@@ -19,9 +19,8 @@
     </view>
   </view>
   -->
-
   <view class="weui-footer weui-footer_fixed-bottom">
-    <view class="weui-footer__text">こんにちは、千矢ちゃんです！</view>
+    <view class="weui-footer__text" bindtap="clearStorage">こんにちは、千矢ちゃんです！</view>
   </view>
 
 </view>
