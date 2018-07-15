@@ -4,14 +4,14 @@
     <view class="info-text">
       <view style="font-size:26rpx;line-height:35rpx;">
         <text>
-          本功能仍在开发中，目前仅展示当月薪资信息。
+          ※ Lite 版仅展示当月薪资信息。
         </text>
       </view>
     </view>
   </view>
 
   <view class="weui-cells__title">薪资信息</view>
-  <view class="weui-cells weui-cells_after-title">
+  <view class="weui-cells weui-cells_after-title" style="margin-bottom:20rpx;">
     <view class="weui-cell">
       <view class="weui-cell__bd">姓名</view>
       <view class="weui-cell__ft">{{salary.userName}}</view>
@@ -176,8 +176,9 @@
       <view class="weui-cell__bd">摘要</view>
       <view class="weui-cell__ft">{{salary.summary}}</view>
     </view>
-
   </view>
+
+
 
    
 

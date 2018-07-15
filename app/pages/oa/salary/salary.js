@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-      salary: {}
+      salary: {},
+      salaryLst : {}
   },
 
   /**
@@ -27,9 +28,10 @@ Page({
     // get current date
     var date = new Date();
     var year = date.getFullYear();
-    var month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    // ask info for past 6 months
+    var magicOffset = 6
+    var month = (date.getMonth() + 1 - magicOffset < 10 ? '0' + (date.getMonth() + 1 - magicOffset) : date.getMonth() + 1 - magicOffset);
     var queryDateStr = year + "-" + month + "-01 00:00:00"
-    // ask info
     var payload = {
       "startDate" : queryDateStr
     }
@@ -42,7 +44,8 @@ Page({
       if (response.content.status === "success") {
         if(response.content.result.list.length > 0){
           that.setData({
-            "salary": response.content.result.list[0]
+            "salary": response.content.result.list[0],
+            "salaryLst" : response.content.result.list
           })
         }else{
           wx.showToast({
