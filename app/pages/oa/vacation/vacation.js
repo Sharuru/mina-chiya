@@ -1,14 +1,13 @@
-// pages/oa/salary/salary.js
+// pages/oa/vacation/vacation.js
 import chiya from '../../../utils/utils.js'
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      salary: {},
-      salaryLst : {}
+    annualTime: "加载中...",
+    overTime: "加载中..."
   },
 
   /**
@@ -17,39 +16,37 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.setNavigationBarTitle({
-      title: '薪资'
+      title: '休假'
     })
     wx.setNavigationBarColor({
-      frontColor: '#000000',
-      backgroundColor: '#FFEB3B'
+      frontColor: '#ffffff',
+      backgroundColor: '#FF6633'
     })
-  
-    // TOOO get salary info, use libs
+
     // get current date
     var date = new Date();
     var year = date.getFullYear();
-    // ask info for past 6 months
-    var magicOffset = 6
+    var magicOffset = 0
     var month = (date.getMonth() + 1 - magicOffset < 10 ? '0' + (date.getMonth() + 1 - magicOffset) : date.getMonth() + 1 - magicOffset);
     var queryDateStr = year + "-" + month + "-01 00:00:00"
     var payload = {
-      "startDate" : queryDateStr
+      "startDate": queryDateStr
     }
     wx.showLoading({
-      title: '薪资信息加载中',
+      title: '休假信息加载中',
     })
     var that = this
-    chiya.apiRequest("/getMobileSalary", payload, function (response) {
+    chiya.apiRequest("/getMobileHoliday", payload, function (response) {
       console.log(response)
       if (response.content.status === "success") {
-        if(response.content.result.list.length > 0){
+        if (response.content.result.list.length > 0) {
           that.setData({
-            "salary": response.content.result.list[0],
-            "salaryLst" : response.content.result.list
+            "annualTime": response.content.result.list[0].annualTime,
+            "overTime": response.content.result.list[0].overTime
           })
-        }else{
+        } else {
           wx.showToast({
-            title: "本月薪资尚未录入",
+            title: "本月信息尚未生成",
             icon: 'none',
             duration: 3000
           })
@@ -76,7 +73,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+  
   },
 
   /**

@@ -29,6 +29,12 @@
                   <view class="weui-grid__label">薪资</view>
               </view>
           </block>
+          <block>
+              <view class="weui-grid" hover-class="weui-grid_active" bindtap="openOaVacation">
+                  <image class="weui-grid__icon" src="/images/vacation.png" />
+                  <view class="weui-grid__label">休假</view>
+              </view>
+          </block>
       </view>
 </view>
 

@@ -115,6 +115,20 @@ Page({
     }
   }),
 
+  openOaVacation: chiya.throttle(function (e) {
+    if (this.data.userInfo.extra.isOaBind) {
+      wx.navigateTo({
+        url: '/pages/oa/vacation/vacation',
+      })
+    } else {
+      wx.showToast({
+        title: '请先绑定 E 管家账户',
+        icon: 'none',
+        duration: 3000
+      })
+    }
+  }),
+
   /**
    * 生命周期函数--监听页面隐藏
    */

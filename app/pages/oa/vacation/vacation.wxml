@@ -1,0 +1,27 @@
+<!--pages/oa/vacation/vacation.wxml-->
+<view class="main-container">
+  <view class="info-block-orange" > 
+    <view class="info">  
+      <view class="info-detail">  
+        <text style="font-size:36rpx;">截至本月，您的休假情况为：</text>
+        <view>
+          <text style="font-size:32rpx;">年休：</text>
+          <text style="font-size:32rpx;">{{annualTime}} 天</text>
+        </view>
+        <view>
+          <text style="font-size:32rpx;">调休：</text> 
+          <text style="font-size:32rpx;">{{overTime}} 小时</text>
+        </view>        
+      </view>  
+    </view>
+  </view>
+
+  <view class="weui-footer" style="margin-top:26rpx;text-align:left">
+    <view class="weui-footer__text" style="color: red;">注意事项</view>
+    <view class="weui-footer__text">请假流程：</view>
+    <view class="weui-footer__text">申请人填单→项目经理审批→部长审批→报综合管理部审核备案。</view>
+    <view class="weui-footer__text" style="margin-top:20rpx;">事假按照半天为单位计算 (优先使用年假抵扣)。不足半天的情况，按照缺勤(用调休抵扣)计算。</view>
+  </view>
+  
+</view>
+
