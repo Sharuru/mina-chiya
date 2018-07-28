@@ -3,13 +3,13 @@
   <view class="info-block-orange" > 
     <view class="info">  
       <view class="info-detail">  
-        <text style="font-size:36rpx;">截至本月，您的休假情况为：</text>
+        <text style="font-size:36rpx;">截至上月，您的休假情况为：</text>
         <view>
-          <text style="font-size:32rpx;">年休：</text>
+          <text style="font-size:32rpx;">剩余年休：</text>
           <text style="font-size:32rpx;">{{annualTime}} 天</text>
         </view>
         <view>
-          <text style="font-size:32rpx;">调休：</text> 
+          <text style="font-size:32rpx;">剩余调休：</text> 
           <text style="font-size:32rpx;">{{overTime}} 小时</text>
         </view>        
       </view>  
@@ -24,4 +24,3 @@
   </view>
   
 </view>
-
