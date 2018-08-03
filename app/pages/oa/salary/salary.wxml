@@ -4,7 +4,7 @@
     <view class="info-text">
       <view style="font-size:26rpx;line-height:35rpx;">
         <text>
-          ※ Lite 版仅展示当月薪资信息。
+          ※ Lite 版仅展示最近一个月的薪资信息。
         </text>
       </view>
     </view>

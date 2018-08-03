@@ -29,7 +29,7 @@ Page({
     var date = new Date();
     var year = date.getFullYear();
     // ask info for past 6 months
-    var magicOffset = 6
+    var magicOffset = 1
     var month = (date.getMonth() + 1 - magicOffset < 10 ? '0' + (date.getMonth() + 1 - magicOffset) : date.getMonth() + 1 - magicOffset);
     var queryDateStr = year + "-" + month + "-01 00:00:00"
     var payload = {
@@ -47,9 +47,10 @@ Page({
             "salary": response.content.result.list[0],
             "salaryLst" : response.content.result.list
           })
+          wx.hideLoading()
         }else{
           wx.showToast({
-            title: "本月薪资尚未录入",
+            title: "薪资信息尚未生成",
             icon: 'none',
             duration: 3000
           })
@@ -61,7 +62,6 @@ Page({
           duration: 3000
         })
       }
-      wx.hideLoading()
     })
   },
 
