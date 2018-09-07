@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/oa/oa",
     "pages/auth/wechat-auth",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/oa/salary/salary",
+    "pages/oa/vacation/vacation"
   ],
   "window": {
     "backgroundTextStyle": "light",

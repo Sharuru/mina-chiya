@@ -1,4 +1,6 @@
 // pages/oa/oa.js
+import chiya from '../../utils/utils.js'
+
 Page({
 
   /**
@@ -14,7 +16,8 @@ Page({
         trimmedNickName: "未授权用户",
         isOaBind : false
       }
-    }
+    },
+    userContext : {}
   },
 
   /**
@@ -54,6 +57,27 @@ Page({
         }
       }
     })
+    // TODO keep sessionId
+    if (wx.getStorageSync("_USER_NAME") != "") {
+      console.log("Requesting new sessionId")
+      var payload = {
+        userId: wx.getStorageSync("_USER_NAME"),
+        password: wx.getStorageSync("_USER_PASS"),
+        defaultorgId: "00001"
+      }
+      chiya.apiRequest("/login", payload, function (response) {
+        if (response.content.status === "success") {
+          wx.setStorageSync("_USER_CONTEXT", response.content.result)
+          wx.setStorageSync("_SESSION_ID", response.content.result.sessionId)
+        } else {
+          wx.showToast({
+            title: response.content.msg.msgContent,
+            icon: 'none',
+            duration: 3000
+          })
+        }
+      })
+    }
   },
 
   /**
@@ -67,14 +91,43 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (wx.getStorageSync("USER") !== "") {
-      console.log("I am in")
+    if (wx.getStorageSync("_USER_CONTEXT") !== "") {
+      var userContext = wx.getStorageSync("_USER_CONTEXT") 
       this.setData({
-        "userInfo.extra.isOaBind": true,
-        "userInfo.extra.oaAccount": wx.getStorageSync("USER") + "@" + wx.getStorageSync("DEPT")
+        "userContext": userContext,
+        "userInfo.extra.isOaBind" : true,
+        "userInfo.extra.oaAccount": userContext.name + "@" + userContext.orgName
       })
     }
   },
+
+  openOaSalary: chiya.throttle(function (e) {
+    if (this.data.userInfo.extra.isOaBind) {
+      wx.navigateTo({
+        url: '/pages/oa/salary/salary',
+      })
+    } else {
+      wx.showToast({
+        title: '请先绑定 E 管家账户',
+        icon: 'none',
+        duration: 3000
+      })
+    }
+  }),
+
+  openOaVacation: chiya.throttle(function (e) {
+    if (this.data.userInfo.extra.isOaBind) {
+      wx.navigateTo({
+        url: '/pages/oa/vacation/vacation',
+      })
+    } else {
+      wx.showToast({
+        title: '请先绑定 E 管家账户',
+        icon: 'none',
+        duration: 3000
+      })
+    }
+  }),
 
   /**
    * 生命周期函数--监听页面隐藏
