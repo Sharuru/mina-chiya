@@ -27,10 +27,12 @@ Page({
     // TOOO get salary info, use libs
     // get current date
     var date = new Date();
+    var magicOffset = 1;
+    // offset fetching month
+    date.setMonth(date.getMonth() - magicOffset);
+    // date string
     var year = date.getFullYear();
-    // ask info for past 6 months
-    var magicOffset = 1
-    var month = (date.getMonth() + 1 - magicOffset < 10 ? '0' + (date.getMonth() + 1 - magicOffset) : date.getMonth() + 1 - magicOffset);
+    var month = (date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
     var queryDateStr = year + "-" + month + "-01 00:00:00"
     var payload = {
       "startDate" : queryDateStr
