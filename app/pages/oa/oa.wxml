@@ -21,7 +21,7 @@
 
 </view>
 
-<view style="margin-top:40rpx;">
+<view style="margin-top:40rpx;" hidden="{{!showFunctionBlocks}}">
       <view class="weui-grids">
           <block>
               <view class="weui-grid" hover-class="weui-grid_active" bindtap="openOaSalary">

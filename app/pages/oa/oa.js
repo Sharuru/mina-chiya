@@ -17,7 +17,8 @@ Page({
         isOaBind : false
       }
     },
-    userContext : {}
+    userContext : {},
+    showFunctionBlocks: false
   },
 
   /**
@@ -57,27 +58,6 @@ Page({
         }
       }
     })
-    // TODO keep sessionId
-    if (wx.getStorageSync("_USER_NAME") != "") {
-      console.log("Requesting new sessionId")
-      var payload = {
-        userId: wx.getStorageSync("_USER_NAME"),
-        password: wx.getStorageSync("_USER_PASS"),
-        defaultorgId: "00001"
-      }
-      chiya.apiRequest("/login", payload, function (response) {
-        if (response.content.status === "success") {
-          wx.setStorageSync("_USER_CONTEXT", response.content.result)
-          wx.setStorageSync("_SESSION_ID", response.content.result.sessionId)
-        } else {
-          wx.showToast({
-            title: response.content.msg.msgContent,
-            icon: 'none',
-            duration: 3000
-          })
-        }
-      })
-    }
   },
 
   /**
@@ -91,6 +71,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
     if (wx.getStorageSync("_USER_CONTEXT") !== "") {
       var userContext = wx.getStorageSync("_USER_CONTEXT") 
       this.setData({
@@ -98,6 +79,68 @@ Page({
         "userInfo.extra.isOaBind" : true,
         "userInfo.extra.oaAccount": userContext.name + "@" + userContext.orgName
       })
+    }
+    // TODO keep sessionId
+    if (wx.getStorageSync("_USER_NAME") != "") {
+      console.log("Requesting new sessionId")
+      var payload = {
+        userId: wx.getStorageSync("_USER_NAME"),
+        password: wx.getStorageSync("_USER_PASS"),
+        defaultorgId: "00001"
+      }
+      var existedLifetime = wx.getStorageSync("_SESSION_LIFETIME");
+      if (existedLifetime != "") {
+        var currentLifetime = + new Date();
+        if (currentLifetime > existedLifetime + 1800 * 1000) {
+          // 超过半小时，重新登录
+          chiya.apiRequest("/login", payload, function (response) {
+            if (response.content.status === "success") {
+              wx.setStorageSync("_USER_CONTEXT", response.content.result)
+              wx.setStorageSync("_SESSION_ID", response.content.result.sessionId)
+              wx.setStorageSync("_SESSION_LIFETIME", + new Date());
+              that.setData({
+                "showFunctionBlocks": true
+              })
+              console.log("登录凭据刷新成功。")
+            } else {
+              that.setData({
+                "showFunctionBlocks": false
+              })
+              wx.showToast({
+                title: response.content.msg.msgContent,
+                icon: 'none',
+                duration: 3000
+              })
+            }
+          })
+        } else {
+          that.setData({
+            "showFunctionBlocks": true
+          })
+          console.log("使用缓存的登录凭据。")
+        }
+      } else {
+        chiya.apiRequest("/login", payload, function (response) {
+          if (response.content.status === "success") {
+            wx.setStorageSync("_USER_CONTEXT", response.content.result)
+            wx.setStorageSync("_SESSION_ID", response.content.result.sessionId)
+            wx.setStorageSync("_SESSION_LIFETIME", + new Date());
+            that.setData({
+              "showFunctionBlocks": true
+            })
+            console.log("登录凭据创建成功。")
+          } else {
+            that.setData({
+              "showFunctionBlocks": false
+            })
+            wx.showToast({
+              title: response.content.msg.msgContent,
+              icon: 'none',
+              duration: 3000
+            })
+          }
+        })
+      }
     }
   },
 
